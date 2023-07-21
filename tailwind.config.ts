@@ -10,8 +10,11 @@ export default {
     './app.vue',
   ],
   theme: {
+    fontFamily: {
+      sans: ['"Inter"'],
+    },
     extend: {},
   },
   plugins: [],
-
+  darkMode: 'class',
 } satisfies Config

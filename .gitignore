@@ -21,3 +21,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Lock files other than pnpm-lock.yaml
+package-lock.json
+yarn.lock
