@@ -1,5 +1,6 @@
 {
   "name": "starter",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,7 +9,16 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "migration:run": "pnpm tsx scripts/migrate.ts",
+    "migration:generate": "drizzle-kit generate:pg",
+    "migration:drop": "drizzle-kit drop",
+    "migration:pull": "drizzle-kit introspect:pg",
+    "studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.27.2",
+    "postgres": "^3.3.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
@@ -19,9 +29,12 @@
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
     "autoprefixer": "^10.4.14",
+    "dotenv": "^16.3.1",
+    "drizzle-kit": "^0.19.10",
     "eslint": "^8.45.0",
     "nuxt": "^3.6.5",
     "nuxt-icon": "^0.4.2",
+    "pg": "^8.11.1",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"
   }

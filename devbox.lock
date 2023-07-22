@@ -1,0 +1,24 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "glibcLocales@latest": {
+      "last_modified": "2023-05-07T06:59:10Z",
+      "resolved": "github:NixOS/nixpkgs/eb751d65225ec53de9cf3d88acbf08d275882389#glibcLocales",
+      "source": "devbox-search",
+      "version": "2.37-8"
+    },
+    "nodejs@latest": {
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#nodejs_20",
+      "source": "devbox-search",
+      "version": "20.3.1"
+    },
+    "postgresql@latest": {
+      "last_modified": "2023-06-29T16:20:38Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#postgresql",
+      "source": "devbox-search",
+      "version": "14.8"
+    }
+  }
+}

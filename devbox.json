@@ -1,0 +1,28 @@
+{
+  "packages": [
+    "nodejs@latest",
+    "postgresql@latest",
+    "glibcLocales@latest"
+  ],
+  "env": {
+    "PGDATABASE": "dev",
+    "PGPORT": "5432"
+  },
+  "shell": {
+    "scripts": {
+      "app:setup": [
+        "npm install -g pnpm",
+        "npm install -g ni",
+        "ni"
+      ],
+      "db:init": [
+        "initdb"
+      ],
+      "db:create": [
+        "createuser admin",
+        "dropdb --if-exists $PGDATABASE",
+        "createdb $PGDATABASE -O admin"
+      ]
+    }
+  }
+}

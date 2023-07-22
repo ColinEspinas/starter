@@ -29,4 +29,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  runtimeConfig: {
+    // Private keys which are only available within server-side
+    dbUrl: '',
+
+    public: {
+      // Keys within public, will be also exposed to the client-side
+    },
+  },
 })
