@@ -18,6 +18,9 @@
       "db:init": [
         "initdb"
       ],
+      "db:up": [
+        "devbox services up -b postgresql"
+      ],
       "db:create": [
         "createuser admin",
         "dropdb --if-exists $PGDATABASE",
