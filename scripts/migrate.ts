@@ -14,4 +14,5 @@ catch (error) {
 }
 finally {
   console.log('Migration completed')
+  process.exit(0)
 }

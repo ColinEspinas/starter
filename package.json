@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "drizzle-orm": "^0.27.2",
-    "postgres": "^3.3.5"
+    "drizzle-zod": "^0.4.4",
+    "postgres": "^3.3.5",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
