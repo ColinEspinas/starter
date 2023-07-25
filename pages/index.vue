@@ -7,6 +7,11 @@ const {
 } = await useFetch('/api/tasks')
 
 async function toggleTask(id: number, completed: boolean) {
+  const task = tasks.value?.findIndex(task => task.id === id) ?? -1
+
+  if (tasks.value?.[task])
+    tasks.value[task].completed = !tasks.value[task].completed
+
   await $fetch(`/api/tasks/${id}`, {
     method: 'PUT',
     body: {
@@ -17,17 +22,32 @@ async function toggleTask(id: number, completed: boolean) {
 }
 
 async function addTask() {
+  if (newTask.value === '')
+    return
+
+  const task = {
+    id: tasks.value?.length ?? 0,
+    title: newTask.value,
+    completed: false,
+  }
+
+  newTask.value = ''
+  tasks.value?.push(task)
+
   await $fetch('/api/tasks', {
     method: 'POST',
-    body: {
-      title: newTask.value,
-    },
+    body: task,
   })
-  newTask.value = ''
   refreshTasks()
 }
 
 async function deleteTask(id: number) {
+  const task = tasks.value?.findIndex(task => task.id === id) ?? -1
+  if (task === -1)
+    return
+
+  tasks.value?.splice(task, 1)
+
   await $fetch(`/api/tasks/${id}`, {
     method: 'DELETE',
   })

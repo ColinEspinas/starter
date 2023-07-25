@@ -3,13 +3,13 @@ import { insertTaskSchema, tasks } from '~/server/schema/tasks.sql'
 const db = useDatabase()
 
 export default defineEventHandler(async (event) => {
-  const { title } = await readBody(event)
+  const { id, title, completed } = await readBody(event)
 
   try {
     await db
       .insert(tasks)
       .values(
-        insertTaskSchema.parse({ title, completed: false }),
+        insertTaskSchema.parse({ id, title, completed }),
       )
   }
   catch (error) {
