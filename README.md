@@ -54,6 +54,24 @@ To stop the database, run:
 > devbox services stop postgresql
 ```
 
+### Migrations
+
+Using drizzle as an ORM, we have a lot of tools to manage database migrations:
+
+```bash
+# Generate new migrations
+pnpm migration:generate
+
+# Drop existing migrations
+pnpm migration:drop
+
+# Pull migrations from database
+pnpm migration:pull
+
+# Run migrations
+pnpm migration:run
+```
+
 ## Deployment
 
 TODO: Add deployment instructions
