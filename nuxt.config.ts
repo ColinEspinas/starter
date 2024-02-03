@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-icon',
     '@nuxtjs/color-mode',
+    '@nuxtjs/kinde',
+    'radix-vue/nuxt',
   ],
 
   css: [

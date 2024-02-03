@@ -17,9 +17,11 @@
     "studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@nuxtjs/kinde": "^0.1.6",
     "drizzle-orm": "^0.29.3",
     "drizzle-zod": "^0.5.1",
     "postgres": "^3.4.3",
+    "radix-vue": "^1.4.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

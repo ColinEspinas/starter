@@ -1,6 +1,13 @@
 # Starter
 
-Starter template for my personal projects, works with [Nuxt3](https://nuxt.com/) + [TailwindCSS](https://tailwindcss.com/) on the front, [Nitro](https://nitro.unjs.io/) + [Drizzle](https://orm.drizzle.team/) on the back and compatible with most databases.
+Battery included Nuxt based starter template for my projects. Created to get a great DX, UX and UI as fast as possible.
+
+## Built with
+
+- [Nuxt](https://nuxt.com/)
+- [Tailwind](https://tailwindcss.com/) + [Radix Vue](https://www.radix-vue.com/)
+- [Drizzle](https://orm.drizzle.team/)
+- [Kinde](https://www.kinde.com/)
 
 ## Setup
 
