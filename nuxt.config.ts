@@ -33,6 +33,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Private keys which are only available within server-side
     dbUrl: '',
+    passwordPepper: '',
 
     public: {
       // Keys within public, will be also exposed to the client-side
