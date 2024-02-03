@@ -1,6 +1,10 @@
 {
   "extends": "../.nuxt/tsconfig.server.json",
   "compilerOptions": {
+    "strict": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "exclude": [
+    "../eslint.config.js"
+  ]
 }

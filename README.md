@@ -13,21 +13,24 @@ Once you have devbox installed, run the following commands to get started:
 > devbox shell
 
 # Install package managers and dependencies
-> devbox run app:setup
+> pnpm install
 
 # Init postgres and create dev database
 > devbox run db:init
 > devbox run db:up
 > devbox run db:create
 
+# Generate migrations (needed if you deleted .drizzle to reset the migrations)
+> pnpm migration:generate
+
 # Run migrations
-> nr migration:run
+> pnpm migration:run
 
 # Start the app
-> nr dev
+> pnpm dev
 
 # (Optional) Start Drizzle studio
-> nr studio
+> pnpm studio
 ```
 
 ## Development
@@ -42,7 +45,7 @@ To get the project running locally, you'll need to start the app and the databas
 > devbox run db:up
 
 # Start the app
-> nr dev
+> pnpm dev
 ```
 
 To stop the database, run:

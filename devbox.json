@@ -2,7 +2,8 @@
   "packages": [
     "nodejs@latest",
     "postgresql@latest",
-    "glibcLocales@latest"
+    "glibcLocales@latest",
+    "nodePackages.pnpm@latest"
   ],
   "env": {
     "PGDATABASE": "dev",
@@ -10,11 +11,6 @@
   },
   "shell": {
     "scripts": {
-      "app:setup": [
-        "npm install -g pnpm",
-        "npm install -g ni",
-        "ni"
-      ],
       "db:init": [
         "initdb"
       ],
