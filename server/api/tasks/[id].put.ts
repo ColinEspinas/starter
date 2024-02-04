@@ -1,37 +1,18 @@
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
-import { tasks } from '~/server/schema/tasks.sql'
+import { insertTaskSchema, tasks } from '~/server/schema/tasks.sql'
 
 const db = useDatabase()
 
 export default defineEventHandler(async (event) => {
-  if (!event.context.params?.id)
-    throw new Error('Missing id')
-
-  const id = Number.parseInt(event.context.params.id as string, 10)
-  const { completed } = await readBody(event)
+  const id = await getValidatedRouterParams(event, (data: any) => z.number().parse(data.id))
+  const validatedTask = await readValidatedBody(event, (data: any) => insertTaskSchema.parse(data))
 
   try {
-    z.number().parse(id)
-    z.boolean().parse(completed)
+    await db.update(tasks).set(validatedTask).where(eq(tasks.id, id))
   }
   catch (error) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid body or missing parameters',
-    })
-  }
-
-  try {
-    await db.update(tasks)
-      .set({ completed })
-      .where(eq(tasks.id, id as number))
-  }
-  catch (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: (error as Error)?.message || 'Internal server error',
-    })
+    throw createError({ message: 'Failed to update task', status: 500 })
   }
 
   event.node.res.end()

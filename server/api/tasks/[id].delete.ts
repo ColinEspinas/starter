@@ -6,29 +6,13 @@ const db = useDatabase()
 const prepared = db.delete(tasks).where(eq(tasks.id, placeholder('id'))).prepare('delete-task')
 
 export default defineEventHandler(async (event) => {
-  if (!event.context.params?.id)
-    throw new Error('Missing id')
-
-  const id = Number.parseInt(event.context.params.id as string, 10)
-
-  try {
-    z.number().parse(id)
-  }
-  catch (error) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid body or missing parameters',
-    })
-  }
+  const id = await getValidatedRouterParams(event, (data: any) => z.number().parse(data.id))
 
   try {
     await prepared.execute({ id })
   }
   catch (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: (error as Error)?.message || 'Internal server error',
-    })
+    throw createError({ message: 'Failed to delete task', status: 500 })
   }
 
   event.node.res.end()

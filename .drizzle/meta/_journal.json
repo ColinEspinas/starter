@@ -8,6 +8,13 @@
       "when": 1690224850870,
       "tag": "0000_optimal_starfox",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1707014113025,
+      "tag": "0001_giant_firelord",
+      "breakpoints": true
     }
   ]
 }
