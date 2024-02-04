@@ -6,11 +6,9 @@ export default defineEventHandler(async (event) => {
   const validatedTask = await readValidatedBody(event, (data: unknown) => insertTaskSchema.parse(data))
 
   try {
-    await db.insert(tasks).values(validatedTask)
+    return await db.insert(tasks).values(validatedTask).returning()
   }
   catch (error) {
     throw createError({ message: 'Failed to insert task', status: 500 })
   }
-
-  event.node.res.end()
 })

@@ -5,7 +5,7 @@ import { insertTaskSchema, tasks } from '~/server/schema/tasks.sql'
 const db = useDatabase()
 
 export default defineEventHandler(async (event) => {
-  const id = await getValidatedRouterParams(event, (data: any) => z.number().parse(data.id))
+  const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
   const validatedTask = await readValidatedBody(event, (data: any) => insertTaskSchema.parse(data))
 
   try {

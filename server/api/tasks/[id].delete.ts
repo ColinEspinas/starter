@@ -6,7 +6,7 @@ const db = useDatabase()
 const prepared = db.delete(tasks).where(eq(tasks.id, placeholder('id'))).prepare('delete-task')
 
 export default defineEventHandler(async (event) => {
-  const id = await getValidatedRouterParams(event, (data: any) => z.number().parse(data.id))
+  const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
 
   try {
     await prepared.execute({ id })
