@@ -12,7 +12,7 @@ const emits = defineEmits<{
 </script>
 
 <template>
-  <li class="flex justify-between bg-base-100 dark:bg-base-900 rounded-xl pl-3 p-2">
+  <li class="flex  bg-base-100 dark:bg-base-900 rounded-xl pl-3 p-2">
     <label class="group w-full cursor-pointer flex flex-row gap-2 items-center">
       <CheckboxRoot
         :checked="task.completed"
@@ -30,10 +30,10 @@ const emits = defineEmits<{
           <Icon name="ph:check-bold" class="h-4 w-4 text-accent-800 dark:text-accent-400" />
         </CheckboxIndicator>
       </CheckboxRoot>
-      <span class="select-none font-medium text-base-950 dark:text-base-50">{{ task.title }}</span>
+      <span class="select-none font-medium text-base-950 dark:text-base-50 overflow-hidden text-ellipsis w-full">{{ task.title }}</span>
+      <UiAtomsButton before-icon="ph:trash-bold" class="ml-auto" @click="emits('delete')">
+        Delete
+      </UiAtomsButton>
     </label>
-    <UiAtomsButton before-icon="ph:trash-bold" @click="emits('delete')">
-      Delete
-    </UiAtomsButton>
   </li>
 </template>

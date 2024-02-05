@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     'radix-vue/nuxt',
   ],
 
+  extends: ['nuxt-umami'],
+
   css: [
     '~/assets/css/main.css',
   ],
