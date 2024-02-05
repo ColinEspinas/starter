@@ -1,8 +1,10 @@
 import type { Task } from '~/server/schema/tasks.sql'
 
+const tasks = ref<Task[]>([])
+
 export async function useTasks() {
   const { user, loggedIn } = useAuth()
-  const tasks = ref<Task[]>([])
+
   await getTasks()
 
   async function getTasks() {
@@ -64,6 +66,5 @@ export async function useTasks() {
     addTask,
     toggleTask,
     deleteTask,
-
   }
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { tasks, toggleTask, addTask, deleteTask } = await useTasks()
+const { addTask } = await useTasks()
 
 const newTaskTitle = ref('')
 
@@ -47,18 +47,7 @@ const toggleDark = useToggle(isDark)
         submit-icon="ph:arrow-bend-right-down-bold"
         @submit="addTask"
       />
-      <ul v-if="tasks.length > 0" class="flex flex-col gap-2">
-        <AppAtomsTask
-          v-for="(task, index) in tasks"
-          :key="task.id"
-          :task="task"
-          @delete="deleteTask(index)"
-          @update:completed="toggleTask(index)"
-        />
-      </ul>
-      <p v-if="tasks.length === 0">
-        No tasks
-      </p>
+      <AppMoleculesTaskList />
     </main>
   </div>
   <div v-else>
