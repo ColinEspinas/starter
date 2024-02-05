@@ -47,8 +47,9 @@ function submit() {
         :id="id"
         v-model="model"
         :type="type"
-        class="w-full bg-transparent outline-none"
+        class="w-full bg-transparent outline-none placeholder:text-base-300 dark:placeholder:text-base-600"
         autocomplete="off"
+        :placeholder="placeholder"
       >
       <UiAtomsButton
         v-if="submitText || submitIcon"

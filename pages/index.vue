@@ -43,6 +43,7 @@ const toggleDark = useToggle(isDark)
         id="new-task"
         v-model="newTaskTitle"
         type="text"
+        placeholder="What needs to be done?"
         submit-text="Add to tasks"
         submit-icon="ph:arrow-bend-right-down-bold"
         @submit="addTask"
