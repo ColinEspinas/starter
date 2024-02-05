@@ -7,6 +7,7 @@ Battery included Nuxt based starter template for my projects. Created to get a g
 - 🛡️ Strongly-typed from database to UI components
 - 🔐 Secure authentication system with flexible roles and permissions
 - 📈 GDPR & CCPA compliant analytics
+- 💸 Payment processing
 
 ## Built with
 
@@ -15,6 +16,7 @@ Battery included Nuxt based starter template for my projects. Created to get a g
 - [Drizzle](https://orm.drizzle.team/)
 - [Kinde](https://www.kinde.com/)
 - [Umami](https://umami.is/)
+- [Stripe](https://stripe.com/)
 
 ## Setup
 
