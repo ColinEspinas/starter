@@ -2,6 +2,12 @@
 
 Battery included Nuxt based starter template for my projects. Created to get a great DX, UX and UI as fast as possible.
 
+## Main Features
+
+- 🛡️ Strongly-typed from database to UI components
+- 🔐 Secure authentication system with flexible roles and permissions
+- 📈 GDPR & CCPA compliant analytics
+
 ## Built with
 
 - [Nuxt](https://nuxt.com/)

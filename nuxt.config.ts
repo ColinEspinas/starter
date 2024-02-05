@@ -38,9 +38,17 @@ export default defineNuxtConfig({
     // Private keys which are only available within server-side
     dbUrl: '',
     passwordPepper: '',
+    stripeSecret: '',
 
     public: {
       // Keys within public, will be also exposed to the client-side
+      stripeKey: '',
     },
+  },
+
+  imports: {
+    dirs: [
+      'composables/**',
+    ],
   },
 })
