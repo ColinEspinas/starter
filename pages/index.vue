@@ -11,7 +11,7 @@ const toggleDark = useToggle(isDark)
   <div v-if="$auth.loggedIn" class="flex flex-col gap-6 w-full mx-auto max-w-[600px] p-5">
     <header class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
       <div class="flex gap-2 items-center">
-        <AvatarRoot class="bg-blackA3 inline-flex h-8 w-8 select-none items-center justify-center overflow-hidden rounded-full align-middle">
+        <AvatarRoot class="inline-flex h-8 w-8 select-none items-center justify-center overflow-hidden rounded-full align-middle">
           <AvatarImage
             class="h-full w-full rounded-[inherit] border-2 dark:border-base-800 border-base-100 object-cover"
             :src="$auth.user.picture ?? ''"
@@ -51,12 +51,29 @@ const toggleDark = useToggle(isDark)
       <AppMoleculesTaskList />
     </main>
   </div>
-  <div v-else>
-    <NuxtLink to="/api/login" external>
-      Sign in
-    </NuxtLink>
-    <NuxtLink to="/api/register" external>
-      Sign up
-    </NuxtLink>
+  <div v-else class="flex flex-col gap-6 w-full mx-auto max-w-[600px] p-5">
+    <header class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
+      <div class="flex gap-2 items-center">
+        <p class="font-medium ml-1">
+          ToDo App
+        </p>
+      </div>
+      <div class="flex gap-2">
+        <UiAtomsButton text="Sign in" to="/api/login" external />
+        <UiAtomsButton
+          text="Sign up"
+          to="/api/register"
+          variant="accent"
+          external
+        />
+        <UiAtomsButton before-icon="ph:moon-bold" @click="toggleDark" />
+      </div>
+    </header>
+    <main class="flex flex-col gap-4">
+      <p class="flex items-center gap-4 bg-base-100 dark:bg-base-900 rounded-xl px-6 py-5 font-medium text-base-950 dark:text-base-50">
+        <Icon name="ph:lightbulb-bold" size="18" class="shrink-0 text-accent-500" />
+        <span>Seems like you have no tasks. Sign in to get started!</span>
+      </p>
+    </main>
   </div>
 </template>
