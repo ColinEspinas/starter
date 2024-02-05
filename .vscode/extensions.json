@@ -5,6 +5,7 @@
     "dbaeumer.vscode-eslint",
     "vue.volar",
     "streetsidesoftware.code-spell-checker",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss"
   ]
 }

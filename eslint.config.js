@@ -9,4 +9,14 @@ export default antfu({
     'node-modules',
     '**/node-modules/**',
   ],
+  rules: {
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 3,
+      },
+      multiline: {
+        max: 1,
+      },
+    }],
+  },
 })

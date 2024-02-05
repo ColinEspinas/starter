@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Inter: true,
+      'Hanken Grotesk': true,
     },
   },
 
