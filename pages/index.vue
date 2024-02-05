@@ -8,7 +8,7 @@ const toggleDark = useToggle(isDark)
 </script>
 
 <template>
-  <div v-if="$auth.loggedIn" class="flex flex-col gap-6 w-full mx-auto max-w-[600px] p-5">
+  <div v-if="$auth.loggedIn" class="flex flex-col gap-6 w-full mx-auto max-w-[600px] py-10 px-5">
     <header class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
       <div class="flex gap-2 items-center">
         <AvatarRoot class="inline-flex h-8 w-8 select-none items-center justify-center overflow-hidden rounded-full align-middle">
@@ -51,7 +51,7 @@ const toggleDark = useToggle(isDark)
       <AppMoleculesTaskList />
     </main>
   </div>
-  <div v-else class="flex flex-col gap-6 w-full mx-auto max-w-[600px] p-5">
+  <div v-else class="flex flex-col gap-6 w-full mx-auto max-w-[600px] py-10 px-5">
     <header class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
       <div class="flex gap-2 items-center">
         <p class="font-medium ml-1">
