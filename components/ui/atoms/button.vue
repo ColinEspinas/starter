@@ -19,8 +19,8 @@ const emits = defineEmits<{
 }>()
 
 const variantClasses = {
-  base: 'border-base-200 bg-base-100 text-base-950 dark:border-base-800 dark:bg-base-900 dark:text-base-50',
-  accent: 'dark:border-accent-500 bg-accent-600 text-base-50 border-accent-700',
+  base: 'border-base-200 bg-base-100 text-base-950 dark:border-base-800 dark:bg-base-900 dark:text-base-50 hover:border-base-400 hover:dark:border-base-600',
+  accent: 'dark:border-accent-500 bg-accent-600 text-base-50 border-accent-700 hover:border-accent-400 hover:bg-accent-500',
 }
 </script>
 
@@ -28,7 +28,7 @@ const variantClasses = {
   <NuxtLink
     v-if="to"
     :to="to"
-    class="font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center"
+    class="transition-all font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
     :class="variantClasses[variant]"
     :target="target"
   >
@@ -38,7 +38,7 @@ const variantClasses = {
   </NuxtLink>
   <button
     v-else
-    class="font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center"
+    class="transition-all font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
     :disabled="disabled"
     :class="variantClasses[variant]"
     :type="type"

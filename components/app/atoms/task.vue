@@ -13,18 +13,20 @@ const emits = defineEmits<{
 
 <template>
   <li class="flex justify-between bg-base-100 dark:bg-base-900 rounded-xl pl-3 p-2">
-    <label class="w-full cursor-pointer flex flex-row gap-2 items-center [&>.checkbox]:hover:bg-neutral-100">
+    <label class="group w-full cursor-pointer flex flex-row gap-2 items-center">
       <CheckboxRoot
         :checked="task.completed"
         class="
+          transition-all
           flex h-[25px] w-[25px] appearance-none outline-none
           items-center justify-center rounded-md
           bg-base-50 dark:bg-base-950
           border-2 border-base-200 dark:border-base-800
+          group-focus-within:dark:border-base-400 group-focus-within:border-base-600
         "
         @update:checked="emits('update:completed', $event)"
       >
-        <CheckboxIndicator class=" h-full w-full rounded-md flex items-center justify-center">
+        <CheckboxIndicator class="h-full w-full rounded-md flex items-center justify-center">
           <Icon name="ph:check-bold" class="h-4 w-4 text-accent-800 dark:text-accent-400" />
         </CheckboxIndicator>
       </CheckboxRoot>

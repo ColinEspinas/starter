@@ -37,6 +37,7 @@ function submit() {
     <label
       :for="id"
       class="
+        transition-all
         focus-within:border-base-600 focus-within:dark:border-base-400
         border-2 border-base-100 bg-base-50 dark:border-base-900 dark:bg-base-950
         rounded-lg p-2 pl-4 pt-4 outline-none w-full flex flex-col items-end gap-2
@@ -47,7 +48,7 @@ function submit() {
         :id="id"
         v-model="model"
         :type="type"
-        class="w-full bg-transparent outline-none placeholder:text-base-300 dark:placeholder:text-base-600"
+        class="w-full bg-transparent outline-none placeholder:text-base-300 dark:placeholder:text-base-700"
         autocomplete="off"
         :placeholder="placeholder"
       >
