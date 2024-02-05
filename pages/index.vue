@@ -40,7 +40,6 @@ const toggleDark = useToggle(isDark)
     </header>
     <main class="flex flex-col gap-4">
       <UiMoleculesFormInput
-        id="new-task"
         v-model="newTaskTitle"
         type="text"
         placeholder="What needs to be done?"

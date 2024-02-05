@@ -7,7 +7,6 @@ withDefaults(defineProps<{
   placeholder?: string
   submitText?: string
   submitIcon?: string
-  id: string
 }>(), {
   type: 'text',
 })
@@ -17,6 +16,8 @@ const emits = defineEmits<{
 }>()
 
 const model = defineModel<string>({ required: true })
+
+const id = useId()
 
 function submit() {
   try {
