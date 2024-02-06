@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/kinde',
     'radix-vue/nuxt',
+    '@nuxtjs/i18n',
   ],
 
   extends: ['nuxt-umami'],
@@ -50,5 +51,15 @@ export default defineNuxtConfig({
     dirs: [
       'composables/**',
     ],
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', files: ['en.json'] },
+      { code: 'fr', iso: 'fr-FR', files: ['fr.json'] },
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix_and_default',
+    langDir: './i18n',
   },
 })

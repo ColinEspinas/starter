@@ -1,0 +1,15 @@
+{
+  "common" : {
+    "sign-in" : "Se connecter",
+    "sign-out" : "Déconnexion",
+    "sign-up" : "S'inscrire"
+  },
+  "home" : {
+    "add-task" : "Ajouter aux tâches",
+    "message" : {
+      "auth" : "On dirait que vous n'avez aucune tâche. Ajoutez-en une pour commencer!",
+      "guest" : "On dirait que vous n'avez aucune tâche. Connectez-vous pour en ajouter !"
+    },
+    "task-placeholder" : "Que faut-il faire ?"
+  }
+}

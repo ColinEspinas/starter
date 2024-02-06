@@ -1,0 +1,15 @@
+{
+  "common" : {
+    "sign-in" : "Sign In",
+    "sign-out" : "Sign out",
+    "sign-up" : "Sign up"
+  },
+  "home" : {
+    "add-task" : "Add to tasks",
+    "message" : {
+      "auth" : "Seems like you have no tasks. Add one to get started!",
+      "guest" : "Seems like you have no tasks. Sign in to add some!"
+    },
+    "task-placeholder" : "What needs to be done?"
+  }
+}

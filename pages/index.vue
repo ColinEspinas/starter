@@ -33,7 +33,7 @@ const toggleDark = useToggle(isDark)
           to="/api/logout"
           external
           variant="accent"
-          text="Sign out"
+          :text="$t('common.sign-out')"
         />
         <UiAtomsButton before-icon="ph:moon-bold" @click="toggleDark" />
       </div>
@@ -42,8 +42,8 @@ const toggleDark = useToggle(isDark)
       <UiMoleculesFormInput
         v-model="newTaskTitle"
         type="text"
-        placeholder="What needs to be done?"
-        submit-text="Add to tasks"
+        :placeholder="$t('home.task-placeholder')"
+        :submit-text="$t('home.add-task')"
         submit-icon="ph:arrow-bend-right-down-bold"
         @submit="addTask"
       />
@@ -58,9 +58,13 @@ const toggleDark = useToggle(isDark)
         </p>
       </div>
       <div class="flex gap-2">
-        <UiAtomsButton text="Sign in" to="/api/login" external />
         <UiAtomsButton
-          text="Sign up"
+          :text="$t('common.sign-in')"
+          to="/api/login"
+          external
+        />
+        <UiAtomsButton
+          :text="$t('common.sign-up')"
           to="/api/register"
           variant="accent"
           external
@@ -71,7 +75,7 @@ const toggleDark = useToggle(isDark)
     <main class="flex flex-col gap-4">
       <p class="flex items-center gap-4 bg-base-100 dark:bg-base-900 rounded-xl px-6 py-5 font-medium text-base-950 dark:text-base-50">
         <Icon name="ph:lightbulb-bold" size="18" class="shrink-0 text-accent-500" />
-        <span>Seems like you have no tasks. Sign in to get started!</span>
+        <span>{{ $t('home.message.guest') }}</span>
       </p>
     </main>
   </div>
