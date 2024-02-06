@@ -1,8 +1,12 @@
 {
   "common" : {
+    "go-back" : "Go back to your tasks",
+    "manage-subscription" : "Manage your subscription",
     "sign-in" : "Sign In",
+    "sign-in-to-subscribe" : "Sign in to subscribe",
     "sign-out" : "Sign out",
-    "sign-up" : "Sign up"
+    "sign-up" : "Sign up",
+    "subscribe" : "Subscribe"
   },
   "home" : {
     "add-task" : "Add to tasks",
@@ -11,5 +15,16 @@
       "guest" : "Seems like you have no tasks. Sign in to add some!"
     },
     "task-placeholder" : "What needs to be done?"
+  },
+  "perks" : {
+    "description" : "Subscribe to unlock all these features:",
+    "no-ads" : "No ads",
+    "title" : "ToDo Pro",
+    "unlimited-tasks" : "Unlimited tasks"
+  },
+  "subscribe" : {
+    "message" : {
+      "success" : "You successfully subscribed to ToDo Pro, enjoy!"
+    }
   }
 }

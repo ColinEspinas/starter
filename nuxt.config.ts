@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     public: {
       // Keys within public, will be also exposed to the client-side
       stripeKey: '',
+      appDomain: '',
     },
   },
 

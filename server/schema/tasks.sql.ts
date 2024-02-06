@@ -9,13 +9,12 @@ export const tasks = pgTable('tasks', {
   user: text('user_id').notNull(),
 })
 
+export const selectTaskSchema = createSelectSchema(tasks)
 export const insertTaskSchema = createInsertSchema(tasks, {
   title: z.string(),
   completed: z.boolean(),
   user: z.string(),
 })
-
-export const selectTaskSchema = createSelectSchema(tasks)
 
 export type Task = z.infer<typeof selectTaskSchema>
 export type NewTask = z.infer<typeof insertTaskSchema>

@@ -15,6 +15,20 @@
       "when": 1707014113025,
       "tag": "0001_giant_firelord",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1707257388599,
+      "tag": "0002_silky_lilith",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1707257761440,
+      "tag": "0003_loose_kang",
+      "breakpoints": true
     }
   ]
 }

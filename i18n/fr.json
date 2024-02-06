@@ -1,8 +1,12 @@
 {
   "common" : {
+    "go-back" : "Revenir à vos tâches",
+    "manage-subscription" : "Gérez votre abonnement",
     "sign-in" : "Se connecter",
+    "sign-in-to-subscribe" : "Se connecter pour s'abonner",
     "sign-out" : "Déconnexion",
-    "sign-up" : "S'inscrire"
+    "sign-up" : "S'inscrire",
+    "subscribe" : "S'abonner"
   },
   "home" : {
     "add-task" : "Ajouter aux tâches",
@@ -11,5 +15,16 @@
       "guest" : "On dirait que vous n'avez aucune tâche. Connectez-vous pour en ajouter !"
     },
     "task-placeholder" : "Que faut-il faire ?"
+  },
+  "perks" : {
+    "description" : "Souscrivez pour débloquer toutes ces fonctionnalités : ",
+    "no-ads" : "Pas de publicités",
+    "title" : "ToDo Pro",
+    "unlimited-tasks" : "Tâches illimitées"
+  },
+  "subscribe" : {
+    "message" : {
+      "success" : "Vous vous êtes abonné(e) avec succès à ToDo Pro, profitez-en ! "
+    }
   }
 }
