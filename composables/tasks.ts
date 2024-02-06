@@ -9,7 +9,7 @@ export async function useTasks() {
 
   async function getTasks() {
     if (loggedIn) {
-      const { data } = await useFetch(`/api/tasks?user=${user.id}`)
+      const { data } = await useFetch(`/api/tasks`)
       tasks.value = data.value || []
     }
   }
