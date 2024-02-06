@@ -8,6 +8,7 @@ Battery included Nuxt based starter template for my projects. Created to get a g
 - 🔐 Secure authentication system with flexible roles and permissions
 - 📈 GDPR & CCPA compliant analytics
 - 💸 Payment processing
+- 🌍 i18n support
 
 ## Built with
 
@@ -17,6 +18,7 @@ Battery included Nuxt based starter template for my projects. Created to get a g
 - [Kinde](https://www.kinde.com/)
 - [Umami](https://umami.is/)
 - [Stripe](https://stripe.com/)
+- [Tolgee](https://tolgee.io/)
 
 ## Setup
 
