@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const toggleState = ref(false)
+const { t } = useI18n()
 
 const items = [
   {
-    text: 'Manage subscription',
+    text: t('common.manage-subscription'),
     click: async () => await navigateTo('/api/subscription/manage', {
       external: true,
     }),

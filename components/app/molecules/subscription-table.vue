@@ -36,6 +36,7 @@ const perks = [
         variant="accent"
         :text="$t('common.subscribe')"
         :to="`/api/subscription?lookup_key=${stripe.subscriptionLookupKey}&user_id=${$auth.user.id}`"
+        external
       />
       <UiAtomsButton
         v-else

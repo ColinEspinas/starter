@@ -29,6 +29,34 @@
       "when": 1707257761440,
       "tag": "0003_loose_kang",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1707267021156,
+      "tag": "0004_faulty_talon",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1707267192686,
+      "tag": "0005_orange_molly_hayes",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1707267858816,
+      "tag": "0006_dark_skreet",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1707268475709,
+      "tag": "0007_cheerful_captain_britain",
+      "breakpoints": true
     }
   ]
 }

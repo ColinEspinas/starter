@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
 
     try {
       const result = await getCustomer.execute({ userId: user.id })
-      customerId = result[0]?.id
+      customerId = result[0]?.stripe
     }
     catch (error) {
       throw createError({ message: 'Failed to fetch customer', status: 500 })

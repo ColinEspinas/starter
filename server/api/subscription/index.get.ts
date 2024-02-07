@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   let customerId = null
   try {
     const result = await getCustomer.execute({ userId })
-    customerId = result[0]?.id
+    customerId = result[0]?.stripe
   }
   catch (error) {
     throw createError({ message: 'Failed to fetch customer', status: 500 })
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
       customerId = customer.id
 
       // Update the user's stripe customer id
-      await db.insert(customers).values({ id: customerId, user: userId })
+      await db.insert(customers).values({ stripe: customerId, user: userId })
     }
     catch (error) {
       throw createError({ message: 'Failed to create customer', status: 500 })
@@ -56,7 +56,7 @@ export default defineEventHandler(async (event) => {
     ],
     mode: 'subscription',
     success_url: `${appDomain}/subscribe/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${appDomain}/subscribe/cancel`,
+    cancel_url: `${appDomain}/subscribe`,
     customer: customerId,
   })
 
