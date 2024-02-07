@@ -8,6 +8,7 @@ withDefaults(defineProps<{
   variant?: 'base' | 'accent'
   to?: string
   target?: '_blank' | '_self'
+  external?: boolean
 }>(), {
   type: 'button',
   disabled: false,
@@ -31,6 +32,7 @@ const variantClasses = {
     class="transition-all font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
     :class="variantClasses[variant]"
     :target="target"
+    :external="external"
   >
     <Icon v-if="beforeIcon" class="my-1" :name="beforeIcon" />
     <span v-if="text">{{ text }}</span>
