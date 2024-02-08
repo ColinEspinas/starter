@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     customerId = checkoutSession.customer as string
   }
   else {
-    const { client, sessionManager } = useKinde(event)
+    const { client, sessionManager } = useKindeClient(event)
     const user = await client.getUserProfile(sessionManager)
 
     try {
@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
       customerId = result[0]?.stripe
     }
     catch (error) {
-      throw createError({ message: 'Failed to fetch customer', status: 500 })
+      throw createError({ statusMessage: 'Failed to fetch customer', statusCode: 500 })
     }
   }
   const portalSession = await stripe.billingPortal.sessions.create({

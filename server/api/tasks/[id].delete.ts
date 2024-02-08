@@ -9,7 +9,7 @@ const deleteTask = db.delete(tasks).where(eq(tasks.id, sql.placeholder('id'))).p
 export default defineEventHandler(async (event) => {
   const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
 
-  const { client, sessionManager } = useKinde(event)
+  const { client, sessionManager } = useKindeClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   let task = null
@@ -18,20 +18,20 @@ export default defineEventHandler(async (event) => {
     const result = await getTask.execute({ id })
     task = result[0]
     if (!task)
-      throw createError({ message: 'Task not found', status: 404 })
+      throw createError({ statusMessage: 'Task not found', statusCode: 404 })
   }
   catch (error) {
-    throw createError({ message: 'Failed to fetch task', status: 500 })
+    throw createError({ statusMessage: 'Failed to fetch task', statusCode: 500 })
   }
 
   if (task.user !== user.id)
-    throw createError({ message: 'Unauthorized', status: 403 })
+    throw createError({ statusMessage: 'Unauthorized', statusCode: 403 })
 
   try {
     await deleteTask.execute({ id })
   }
   catch (error) {
-    throw createError({ message: 'Failed to delete task', status: 500 })
+    throw createError({ statusMessage: 'Failed to delete task', statusCode: 500 })
   }
 
   event.node.res.end()

@@ -5,7 +5,7 @@ const db = useDatabase()
 const getTasksByUser = db.select().from(tasks).where(eq(tasks.user, sql.placeholder('user_id'))).orderBy(tasks.id).prepare('tasks-by-user')
 
 export default defineEventHandler(async (event) => {
-  const { client, sessionManager } = useKinde(event)
+  const { client, sessionManager } = useKindeClient(event)
   const user = await client.getUserProfile(sessionManager)
   const userId = user.id
 
@@ -13,6 +13,6 @@ export default defineEventHandler(async (event) => {
     return await getTasksByUser.execute({ user_id: userId })
   }
   catch (error) {
-    throw createError({ message: 'Failed to fetch tasks', status: 500 })
+    throw createError({ statusMessage: 'Failed to fetch tasks', statusCode: 500 })
   }
 })

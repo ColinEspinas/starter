@@ -9,7 +9,7 @@ export async function useServerStripe(event: H3Event): Promise<Stripe> {
     return event.context._stripe
 
   if (!stripeSecret)
-    console.warn('Stripe secret key is not set in runtime config!')
+    throw createError({ statusMessage: 'Stripe secret is not set', statusCode: 500 })
 
   const stripe = new Stripe(stripeSecret, {
     // Optional Stripe client options...

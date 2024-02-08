@@ -40,7 +40,9 @@ export default defineNuxtConfig({
     dbUrl: '',
     passwordPepper: '',
     stripeSecret: '',
-
+    kinde: {
+      defaultOrg: '',
+    },
     public: {
       // Keys within public, will be also exposed to the client-side
       stripeKey: '',
@@ -60,7 +62,6 @@ export default defineNuxtConfig({
       { code: 'fr', iso: 'fr-FR', files: ['fr.json'] },
     ],
     defaultLocale: 'en',
-    strategy: 'prefix_and_default',
     langDir: './i18n',
   },
 })

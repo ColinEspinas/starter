@@ -6,11 +6,11 @@ import { customers } from './customers.sql'
 
 export const subscriptions = pgTable('subscriptions', {
   id: serial('id').primaryKey(),
-  stripe: text('stripe_id').notNull(),
+  stripe: text('stripe_id').notNull().unique(),
   customerId: text('customer_id').notNull(),
   status: text('status').notNull(),
   startDate: integer('start_date').notNull(),
-  endDate: integer('end_date').notNull(),
+  endDate: integer('end_date'),
   lastEventDate: integer('last_event_date').default(-1),
 })
 

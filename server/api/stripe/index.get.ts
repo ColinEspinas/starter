@@ -15,11 +15,11 @@ export default defineEventHandler(async (event) => {
     userId: data.user_id,
   }))
 
-  const { client, sessionManager } = useKinde(event)
+  const { client, sessionManager } = useKindeClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   if (user.id !== userId)
-    throw createError({ message: 'Unauthorized', status: 403 })
+    throw createError({ statusMessage: 'Unauthorized', statusCode: 403 })
 
   // Get the stripe url and customer id
   const stripe = await useServerStripe(event)
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     customerId = result[0]?.stripe
   }
   catch (error) {
-    throw createError({ message: 'Failed to fetch customer', status: 500 })
+    throw createError({ statusMessage: 'Failed to fetch customer', statusCode: 500 })
   }
   if (!customerId) {
     try {
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
       await db.insert(customers).values({ stripe: customerId, user: userId })
     }
     catch (error) {
-      throw createError({ message: 'Failed to create customer', status: 500 })
+      throw createError({ statusMessage: 'Failed to create customer', statusCode: 500 })
     }
   }
 
@@ -62,6 +62,6 @@ export default defineEventHandler(async (event) => {
 
   // Redirect to the stripe checkout page
   if (!session.url)
-    throw createError({ message: 'Failed to create checkout session', status: 500 })
+    throw createError({ statusMessage: 'Failed to create checkout session', statusCode: 500 })
   await sendRedirect(event, session.url)
 })

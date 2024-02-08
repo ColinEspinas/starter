@@ -5,7 +5,7 @@ const { t } = useI18n()
 const items = [
   {
     text: t('common.manage-subscription'),
-    click: async () => await navigateTo('/api/subscription/manage', {
+    click: async () => await navigateTo('/api/stripe/manage', {
       external: true,
     }),
   },

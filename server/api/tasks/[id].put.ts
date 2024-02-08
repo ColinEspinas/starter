@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
   const validatedTask = await readValidatedBody(event, (data: any) => insertTaskSchema.parse(data))
 
-  const { client, sessionManager } = useKinde(event)
+  const { client, sessionManager } = useKindeClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   let task = null
@@ -18,20 +18,20 @@ export default defineEventHandler(async (event) => {
     const result = await getTask.execute({ id })
     task = result[0]
     if (!task)
-      throw createError({ message: 'Task not found', status: 404 })
+      throw createError({ statusMessage: 'Task not found', statusCode: 404 })
   }
   catch (error) {
-    throw createError({ message: 'Failed to fetch task', status: 500 })
+    throw createError({ statusMessage: 'Failed to fetch task', statusCode: 500 })
   }
 
   if (task.user !== user.id)
-    throw createError({ message: 'Unauthorized', status: 403 })
+    throw createError({ statusMessage: 'Unauthorized', statusCode: 403 })
 
   try {
     await db.update(tasks).set(validatedTask).where(eq(tasks.id, id))
   }
   catch (error) {
-    throw createError({ message: 'Failed to update task', status: 500 })
+    throw createError({ statusMessage: 'Failed to update task', statusCode: 500 })
   }
 
   event.node.res.end()

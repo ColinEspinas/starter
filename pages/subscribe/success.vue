@@ -21,7 +21,7 @@ const sessionId = route.query.session_id ?? ''
         <UiAtomsButton
           before-icon="ph:credit-card-bold"
           :text="$t('common.manage-subscription')"
-          :to="`/api/subscription/manage?session_id=${sessionId}`"
+          :to="`/api/stripe/manage?session_id=${sessionId}`"
           external
         />
       </div>
