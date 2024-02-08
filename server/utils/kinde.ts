@@ -74,7 +74,7 @@ export async function useKindeManagementApi() {
   }
 }
 
-export function useKindeClient(event: H3Event) {
+export function useKindeServerClient(event: H3Event) {
   const client = event.context.kinde as ({ sessionManager: SessionManager } & ACClient)
 
   return {

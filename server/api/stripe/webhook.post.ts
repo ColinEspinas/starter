@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
   if (
     existingSubscription
     && existingSubscription.lastEventDate
-    && existingSubscription.lastEventDate >= stripeEvent.created
+    && existingSubscription.lastEventDate > stripeEvent.created
   )
     return 'More recent event already processed. Skipping.'
 

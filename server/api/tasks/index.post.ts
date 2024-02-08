@@ -5,7 +5,7 @@ const db = useDatabase()
 export default defineEventHandler(async (event) => {
   const validatedTask = await readValidatedBody(event, (data: unknown) => insertTaskSchema.parse(data))
 
-  const { client, sessionManager } = useKindeClient(event)
+  const { client, sessionManager } = useKindeServerClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   if (user.id !== validatedTask.user)

@@ -9,7 +9,7 @@ const deleteTask = db.delete(tasks).where(eq(tasks.id, sql.placeholder('id'))).p
 export default defineEventHandler(async (event) => {
   const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
 
-  const { client, sessionManager } = useKindeClient(event)
+  const { client, sessionManager } = useKindeServerClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   let task = null

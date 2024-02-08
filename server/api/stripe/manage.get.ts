@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     customerId = checkoutSession.customer as string
   }
   else {
-    const { client, sessionManager } = useKindeClient(event)
+    const { client, sessionManager } = useKindeServerClient(event)
     const user = await client.getUserProfile(sessionManager)
 
     try {

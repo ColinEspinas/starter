@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const id = await getValidatedRouterParams(event, (data: any) => z.coerce.number().parse(data.id))
   const validatedTask = await readValidatedBody(event, (data: any) => insertTaskSchema.parse(data))
 
-  const { client, sessionManager } = useKindeClient(event)
+  const { client, sessionManager } = useKindeServerClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   let task = null

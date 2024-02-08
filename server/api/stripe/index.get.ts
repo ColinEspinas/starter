@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     userId: data.user_id,
   }))
 
-  const { client, sessionManager } = useKindeClient(event)
+  const { client, sessionManager } = useKindeServerClient(event)
   const user = await client.getUserProfile(sessionManager)
 
   if (user.id !== userId)
