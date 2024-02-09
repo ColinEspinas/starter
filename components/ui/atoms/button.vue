@@ -29,7 +29,7 @@ const variantClasses = {
   <NuxtLink
     v-if="to"
     :to="to"
-    class="transition-all font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
+    class="transition-colors duration-200 font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
     :class="variantClasses[variant]"
     :target="target"
     :external="external"
@@ -40,7 +40,7 @@ const variantClasses = {
   </NuxtLink>
   <button
     v-else
-    class="transition-all font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
+    class="transition-colors duration-200 font-medium py-1 px-2 rounded-lg border-2 flex gap-2 items-center outline-none focus:border-base-400 focus:dark:border-base-600"
     :disabled="disabled"
     :class="variantClasses[variant]"
     :type="type"

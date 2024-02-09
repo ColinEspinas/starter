@@ -3,6 +3,7 @@ import type { Task } from '~/server/schema/tasks.sql'
 
 defineProps<{
   task: Task
+  loading?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -18,7 +19,7 @@ const emits = defineEmits<{
         :checked="task.completed"
         class="
           transition-all
-          flex h-[25px] w-[25px] appearance-none outline-none
+          flex shrink-0 h-[24px] w-[24px] appearance-none outline-none
           items-center justify-center rounded-md
           bg-base-50 dark:bg-base-950
           border-2 border-base-200 dark:border-base-800
@@ -26,12 +27,17 @@ const emits = defineEmits<{
         "
         @update:checked="emits('update:completed', $event)"
       >
-        <CheckboxIndicator class="h-full w-full rounded-md flex items-center justify-center">
-          <Icon name="ph:check-bold" class="h-4 w-4 text-accent-800 dark:text-accent-400" />
+        <CheckboxIndicator class="shrink-0 h-full w-full rounded-md flex items-center justify-center">
+          <Icon name="ph:check-bold" class="shrink-0 h-4 w-4 text-accent-800 dark:text-accent-400" />
         </CheckboxIndicator>
       </CheckboxRoot>
       <span class="select-none font-medium text-base-950 dark:text-base-50 overflow-hidden text-ellipsis w-full">{{ task.title }}</span>
-      <UiAtomsButton before-icon="ph:trash-bold" class="ml-auto" @click="emits('delete')">
+      <UiAtomsButton
+        :disabled="loading"
+        before-icon="ph:trash-bold"
+        class="ml-auto"
+        @click="emits('delete')"
+      >
         Delete
       </UiAtomsButton>
     </label>

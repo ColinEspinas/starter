@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { tasks, toggleTask, deleteTask } = await useTasks()
+const { tasks, loadingTasks, toggleTask, deleteTask } = await useTasks()
 </script>
 
 <template>
@@ -8,6 +8,7 @@ const { tasks, toggleTask, deleteTask } = await useTasks()
       v-for="(task, index) in tasks"
       :key="task.id"
       :task="task"
+      :loading="loadingTasks.includes(index)"
       @delete="deleteTask(index)"
       @update:completed="toggleTask(index)"
     />

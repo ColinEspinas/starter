@@ -1,6 +1,7 @@
 import type { Task } from '~/server/schema/tasks.sql'
 
 const tasks = ref<Task[]>([])
+const loadingTasks = ref<number[]>([])
 
 export async function useTasks() {
   const { user, loggedIn } = useAuth()
@@ -17,17 +18,22 @@ export async function useTasks() {
   async function addTask(title: string) {
     if (loggedIn) {
       try {
+        const addedTask = {
+          title,
+          completed: false,
+          user: user.id,
+        }
+        const addedTaskIndex = tasks.value.push({ id: -1, ...addedTask }) - 1
+        loadingTasks.value.push(addedTaskIndex)
+
         const data = await $fetch('/api/tasks', {
           method: 'POST',
-          body: {
-            title,
-            completed: false,
-            user: user.id,
-          },
+          body: addedTask,
         })
-        const addedTask = data?.[0]
-        if (addedTask)
-          tasks.value.push(addedTask)
+        const addedTaskId = data?.[0].id
+        if (addedTaskId)
+          tasks.value[addedTaskIndex].id = addedTaskId
+        loadingTasks.value = loadingTasks.value.filter(index => index !== addedTaskIndex)
       }
       catch (error) {
         console.error(error)
@@ -62,6 +68,7 @@ export async function useTasks() {
 
   return {
     tasks,
+    loadingTasks,
     getTasks,
     addTask,
     toggleTask,

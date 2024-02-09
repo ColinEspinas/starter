@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
-
-  html, body {
+  body {
     @apply dark:bg-base-950 bg-base-50 dark:text-base-50 text-base-950 min-h-screen;
   }
 
