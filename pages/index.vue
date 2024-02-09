@@ -1,4 +1,11 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
+useSeoMeta({
+  title: `${t('common.app-name')} - ${t('home.meta.title')}`,
+  description: t('home.meta.description'),
+})
+
 const { addTask } = await useTasks()
 
 const newTaskTitle = ref('')

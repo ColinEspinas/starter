@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
+useSeoMeta({
+  title: `${t('common.app-name')} - ${t('success.meta.title')}`,
+  description: t('home.meta.description'),
+  robots: 'noindex',
+})
+
 const route = useRoute()
 const sessionId = route.query.session_id ?? ''
 </script>
