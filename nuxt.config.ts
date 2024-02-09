@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxtjs/kinde',
     'radix-vue/nuxt',
     '@nuxtjs/i18n',
+    '@nuxtjs/fontaine',
   ],
 
   extends: ['nuxt-umami'],
