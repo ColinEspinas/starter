@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     'nuxt-icon',
-    '@nuxtjs/color-mode',
     '@nuxtjs/kinde',
     'radix-vue/nuxt',
     '@nuxtjs/i18n',
@@ -23,10 +22,6 @@ export default defineNuxtConfig({
     families: {
       'Hanken Grotesk': true,
     },
-  },
-
-  colorMode: {
-    classSuffix: '',
   },
 
   postcss: {
