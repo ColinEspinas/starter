@@ -29,7 +29,7 @@ const toggleDark = useToggle(isDark)
   <header v-else class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
     <div class="flex gap-2 items-center">
       <p class="font-medium ml-1">
-        ToDo App
+        {{ $t('common.app-name') }}
       </p>
     </div>
     <div class="flex gap-2">
