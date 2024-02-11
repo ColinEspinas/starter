@@ -1,4 +1,4 @@
-import { eq, sql } from 'drizzle-orm'
+import { eq, lt, sql } from 'drizzle-orm'
 import type Stripe from 'stripe'
 import { customers } from '~/server/schema/customers.sql'
 import type { NewSubscription } from '~/server/schema/subscriptions.sql'
@@ -47,6 +47,7 @@ export default defineEventHandler(async (event) => {
         await db.insert(subscriptions).values(validatedSubscription).onConflictDoUpdate({
           target: subscriptions.stripe,
           set: validatedSubscription,
+          where: lt(subscriptions.lastEventDate, stripeEvent.created),
         }).execute()
 
         // Add pro role to user in Kinde

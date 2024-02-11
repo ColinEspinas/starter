@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 </script>
@@ -13,10 +12,6 @@ const toggleDark = useToggle(isDark)
       </p>
     </div>
     <div class="flex gap-2">
-      <UiAtomsButton
-        :text="$t('common.subscribe')"
-        :to="localePath('/subscribe')"
-      />
       <UiAtomsButton
         to="/api/logout"
         external
