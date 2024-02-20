@@ -75,10 +75,21 @@ export async function useKindeManagementApi() {
 }
 
 export function useKindeServerClient(event: H3Event) {
-  const client = event.context.kinde as ({ sessionManager: SessionManager } & ACClient)
+  const client = event.context.kinde
 
   return {
     client,
-    sessionManager: client.sessionManager,
+  }
+}
+
+type Slice<T extends Array<any>> = T extends [infer _A, ...infer B] ? B : never
+
+declare module 'h3' {
+  interface H3EventContext {
+    kinde: {
+      [key in keyof ACClient]: (
+        ...args: Slice<Parameters<ACClient[key]>>
+      ) => ReturnType<ACClient[key]>
+    } & { sessionManager: SessionManager }
   }
 }

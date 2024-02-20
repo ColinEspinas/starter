@@ -18,8 +18,8 @@ export default defineEventHandler(async (event) => {
     customerId = checkoutSession.customer as string
   }
   else {
-    const { client, sessionManager } = useKindeServerClient(event)
-    const user = await client.getUserProfile(sessionManager)
+    const { client } = useKindeServerClient(event)
+    const user = await client.getUserProfile()
 
     try {
       const result = await getCustomer.execute({ userId: user.id })

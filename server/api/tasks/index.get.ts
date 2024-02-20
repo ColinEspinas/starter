@@ -5,8 +5,8 @@ const db = useDatabase()
 const getTasksByUser = db.select().from(tasks).where(eq(tasks.user, sql.placeholder('user_id'))).orderBy(tasks.id).prepare('tasks-by-user')
 
 export default defineEventHandler(async (event) => {
-  const { client, sessionManager } = useKindeServerClient(event)
-  const user = await client.getUserProfile(sessionManager)
+  const { client } = useKindeServerClient(event)
+  const user = await client.getUserProfile()
   const userId = user.id
 
   try {

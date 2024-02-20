@@ -15,8 +15,8 @@ export default defineEventHandler(async (event) => {
     userId: data.user_id,
   }))
 
-  const { client, sessionManager } = useKindeServerClient(event)
-  const user = await client.getUserProfile(sessionManager)
+  const { client } = useKindeServerClient(event)
+  const user = await client.getUserProfile()
 
   if (user.id !== userId)
     throw createError({ statusMessage: 'Unauthorized', statusCode: 403 })

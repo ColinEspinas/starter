@@ -4,7 +4,7 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 const { getHasRole } = await useUser()
-const isPro = getHasRole('pro')
+const isPro = await getHasRole('pro')
 
 const items: any[] = []
 
