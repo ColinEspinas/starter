@@ -3,6 +3,7 @@ const { tasks, loadingTasks, toggleTask, deleteTask } = await useTasks()
 </script>
 
 <template>
+  <AppAtomsTaskCount :count="tasks.length" />
   <ul v-if="tasks.length > 0" class="flex flex-col gap-2">
     <AppAtomsTask
       v-for="(task, index) in tasks"
