@@ -5,6 +5,8 @@ const loadingTasks = ref<number[]>([])
 
 export async function useTasks() {
   const { user, loggedIn } = useAuth()
+  const { getHasRole } = await useUser()
+  const isPro = await getHasRole('pro')
 
   await getTasks()
 
@@ -17,6 +19,8 @@ export async function useTasks() {
 
   async function addTask(title: string) {
     if (loggedIn) {
+      if (!isPro && tasks.value.length <= 3)
+        return
       try {
         const addedTask = {
           title,
