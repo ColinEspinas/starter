@@ -18,7 +18,7 @@ const toggleDark = useToggle(isDark)
         variant="accent"
         :text="$t('common.sign-out')"
       />
-      <UiAtomsButton before-icon="ph:moon-bold" @click="toggleDark" />
+      <UiAtomsButton :before-icon="isDark ? 'ph:moon-bold' : 'ph:sun-bold'" @click="toggleDark" />
     </div>
   </header>
   <header v-else class="flex justify-between items-center border-2 dark:border-base-900 border-base-100 p-2 rounded-xl">
@@ -39,7 +39,7 @@ const toggleDark = useToggle(isDark)
         variant="accent"
         external
       />
-      <UiAtomsButton before-icon="ph:moon-bold" @click="toggleDark" />
+      <UiAtomsButton :before-icon="isDark ? 'ph:moon-bold' : 'ph:sun-bold'" @click="toggleDark" />
     </div>
   </header>
 </template>
