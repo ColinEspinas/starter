@@ -18,10 +18,12 @@
   },
   "dependencies": {
     "@nuxtjs/kinde": "^0.1.6",
+    "@pinia/nuxt": "^0.5.1",
     "@stripe/stripe-js": "^2.4.0",
     "drizzle-orm": "^0.29.3",
     "drizzle-zod": "^0.5.1",
     "nuxt-umami": "^2.5.7",
+    "pinia": "^2.1.7",
     "postgres": "^3.4.3",
     "radix-vue": "^1.4.2",
     "stripe": "^14.16.0",

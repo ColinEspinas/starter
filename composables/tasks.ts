@@ -1,14 +1,16 @@
 import type { Task } from '~/server/schema/tasks.sql'
 
-const tasks = ref<Task[]>([])
-const loadingTasks = ref<number[]>([])
-
 export async function useTasks() {
-  const { user, loggedIn } = useAuth()
-  const { getHasRole } = await useUser()
-  const isPro = await getHasRole('pro')
+  const tasks = useState<Task[]>(() => [])
+  const loadingTasks = ref<number[]>([])
 
-  await getTasks()
+  const { user, loggedIn } = useAuth()
+
+  let isPro = false
+  if (loggedIn) {
+    const { getHasRole } = await useUser()
+    isPro = await getHasRole('pro')
+  }
 
   async function getTasks() {
     if (loggedIn) {
@@ -16,6 +18,7 @@ export async function useTasks() {
       tasks.value = data.value || []
     }
   }
+  await getTasks()
 
   async function addTask(title: string) {
     if (loggedIn) {

@@ -5,7 +5,7 @@ export function usePassword() {
   const { passwordPepper } = useRuntimeConfig()
   const keyLength = 32
 
-  const hash = async (password: string): Promise<string> => {
+  async function hash(password: string): Promise<string> {
     return new Promise((resolve, reject) => {
       const salt = randomBytes(16).toString('hex')
       scrypt(password + passwordPepper, salt, keyLength, (err, derivedKey) => {
@@ -16,7 +16,7 @@ export function usePassword() {
     })
   }
 
-  const compare = async (password: string, hash: string): Promise<boolean> => {
+  async function compare(password: string, hash: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       const [salt, hashKey] = hash.split('.')
       const hashKeyBuff = Buffer.from(hashKey, 'hex')

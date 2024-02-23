@@ -7,7 +7,6 @@ useSeoMeta({
 })
 
 const { addTask } = await useTasks()
-
 const newTaskTitle = ref('')
 </script>
 

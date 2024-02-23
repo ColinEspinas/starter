@@ -3,7 +3,7 @@ const { kinde } = useRuntimeConfig()
 export async function useSubscription() {
   const kindeManagementApi = await useKindeManagementApi()
 
-  const isUserSubscribed = async (userId: string) => {
+  async function getIsUserSubscribed(userId: string) {
     const { roles } = await kindeManagementApi.organizations.getOrganizationUserRoles({
       orgCode: kinde.defaultOrg,
       userId,
@@ -13,8 +13,8 @@ export async function useSubscription() {
     return false
   }
 
-  const subscribeUser = async (userId: string) => {
-    if (await isUserSubscribed(userId))
+  async function subscribeUser(userId: string) {
+    if (await getIsUserSubscribed(userId))
       throw createError({ statusMessage: 'User is already subscribed', statusCode: 409 })
     try {
       const { roles } = await kindeManagementApi.roles.getRoles()
@@ -35,8 +35,8 @@ export async function useSubscription() {
     }
   }
 
-  const unsubscribeUser = async (userId: string) => {
-    if (!await isUserSubscribed(userId))
+  async function unsubscribeUser(userId: string) {
+    if (!await getIsUserSubscribed(userId))
       throw createError({ statusMessage: 'User is not subscribed', statusCode: 409 })
     try {
       const { roles } = await kindeManagementApi.roles.getRoles()
@@ -56,7 +56,7 @@ export async function useSubscription() {
   }
 
   return {
-    isUserSubscribed,
+    getIsUserSubscribed,
     subscribeUser,
     unsubscribeUser,
   }
