@@ -1,6 +1,20 @@
 <script setup lang="ts">
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const colorMode = useColorMode()
+
+function toggleDark() {
+  colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light'
+}
+
+const darkModeIcon = computed(() => {
+  switch (colorMode.value) {
+    case 'dark':
+      return 'ph:moon-bold'
+    case 'light':
+      return 'ph:sun-bold'
+    default:
+      return 'ph:browser-bold'
+  }
+})
 </script>
 
 <template>
@@ -41,7 +55,7 @@ const toggleDark = useToggle(isDark)
         />
       </template>
       <ClientOnly>
-        <UiAtomsButton :before-icon="isDark ? 'ph:moon-bold' : 'ph:sun-bold'" @click="toggleDark" />
+        <UiAtomsButton :before-icon="darkModeIcon" @click="toggleDark" />
       </ClientOnly>
     </div>
   </header>

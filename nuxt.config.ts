@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/fontaine',
     '@pinia/nuxt',
+    '@nuxtjs/color-mode',
   ],
 
   extends: ['nuxt-umami'],
@@ -30,6 +31,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+
+  colorMode: {
+    classSuffix: '',
   },
 
   runtimeConfig: {
