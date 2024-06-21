@@ -5,8 +5,8 @@ import 'dotenv/config'
 export default {
   schema: './server/schema/*.sql.ts',
   out: './.drizzle',
-  driver: 'pg',
+  dialect: 'postgresql',
   dbCredentials: {
-    connectionString: process.env.NUXT_DB_URL || '',
+    url: process.env.NUXT_DB_URL || '',
   },
 } satisfies Config
