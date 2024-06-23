@@ -6,6 +6,7 @@
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "./eslint.config.js"
+    "./eslint.config.js",
+    "./tolgee.config.js"
   ]
 }
