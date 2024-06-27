@@ -21,8 +21,9 @@ export default defineEventHandler(async (event) => {
     existingSubscription
     && existingSubscription.lastEventDate
     && existingSubscription.lastEventDate > stripeEvent.created
-  )
+  ) {
     return 'More recent event already processed. Skipping.'
+  }
 
   let validatedSubscription: NewSubscription
 
