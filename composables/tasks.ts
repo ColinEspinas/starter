@@ -22,7 +22,7 @@ export async function useTasks() {
 
   async function addTask(title: string) {
     if (loggedIn) {
-      if (!isPro && tasks.value.length >= 3)
+      if ((!isPro && tasks.value.length >= 3) || title.length >= 256)
         return
       try {
         const addedTask = {
