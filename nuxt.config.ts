@@ -63,7 +63,7 @@ export default defineNuxtConfig({
       { code: 'en', iso: 'en-US', files: ['en.json'] },
       { code: 'fr', iso: 'fr-FR', files: ['fr.json'] },
     ],
-    strategy: 'no_prefix',
+    strategy: 'prefix',
     defaultLocale: 'en',
     langDir: './i18n',
   },

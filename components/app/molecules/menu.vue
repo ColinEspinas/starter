@@ -3,7 +3,7 @@ const toggleState = ref(false)
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-const { getHasRole } = await useUser()
+const { getHasRole, user } = await useUser()
 const isPro = await getHasRole('pro')
 
 const items: any[] = []
@@ -27,6 +27,24 @@ const proOnlyItems = [
 ]
 
 const allItems = computed(() => isPro ? proOnlyItems.concat(items) : nonProItems.concat(items))
+
+const displayName = computed(() => {
+  const profile = user.value?.profile
+  if (profile?.firstName && profile?.lastName) {
+    return `${profile.firstName} ${profile.lastName}`
+  }
+  return profile?.preferredEmail
+})
+
+const initials = computed(() => {
+  const name = displayName.value
+  if (!name)
+    return ''
+  return name
+    .split(' ')
+    .map(n => n[0])
+    .join('')
+})
 </script>
 
 <template>
@@ -38,13 +56,13 @@ const allItems = computed(() => isPro ? proOnlyItems.concat(items) : nonProItems
           <AvatarImage
             class="h-full w-full rounded-[inherit] border-2 dark:border-base-800 border-base-100 object-cover"
             :src="$auth.user.picture ?? ''"
-            :alt="`${$auth.user.given_name} ${$auth.user.family_name}`"
+            :alt="displayName"
           />
           <AvatarFallback
             class="leading-1 flex h-full w-full items-center justify-center bg-accent-400 text-base-50 text-[15px] font-medium"
             :delay-ms="600"
           >
-            {{ `${$auth.user.given_name[0]}${$auth.user.family_name[0]}` }}
+            {{ initials }}
           </AvatarFallback>
         </AvatarRoot>
       </DropdownMenuTrigger>

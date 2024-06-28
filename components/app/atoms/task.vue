@@ -14,7 +14,7 @@ const emits = defineEmits<{
 const completed = ref(props.task.completed)
 const completedDebounced = refDebounced(completed, 500)
 
-watch(completedDebounced, (value) => {
+watch(completedDebounced, (value: boolean) => {
   emits('update:completed', value)
 })
 </script>
