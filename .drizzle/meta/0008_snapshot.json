@@ -1,10 +1,8 @@
 {
-  "id": "07333228-33d8-4f6a-b2f3-7b701772369b",
-  "prevId": "0d441c46-4d39-4bf7-a6cb-089b9af0ff13",
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "customers": {
+    "public.customers": {
       "name": "customers",
       "schema": "",
       "columns": {
@@ -26,7 +24,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "subscriptions": {
+    "public.subscriptions": {
       "name": "subscriptions",
       "schema": "",
       "columns": {
@@ -79,7 +77,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "tasks": {
+    "public.tasks": {
       "name": "tasks",
       "schema": "",
       "columns": {
@@ -117,8 +115,10 @@
   "enums": {},
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "07333228-33d8-4f6a-b2f3-7b701772369b",
+  "prevId": "0d441c46-4d39-4bf7-a6cb-089b9af0ff13"
 }

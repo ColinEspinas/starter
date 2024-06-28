@@ -1,10 +1,8 @@
 {
-  "id": "05cad84b-2efc-496a-a322-736b5c6c6573",
-  "prevId": "622bb457-856d-419f-b956-fbf426dc776a",
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "customers": {
+    "public.customers": {
       "name": "customers",
       "schema": "",
       "columns": {
@@ -26,7 +24,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "tasks": {
+    "public.tasks": {
       "name": "tasks",
       "schema": "",
       "columns": {
@@ -64,8 +62,10 @@
   "enums": {},
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "05cad84b-2efc-496a-a322-736b5c6c6573",
+  "prevId": "622bb457-856d-419f-b956-fbf426dc776a"
 }

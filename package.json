@@ -10,8 +10,9 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "migration:run": "pnpm dlx tsx scripts/migrate.ts",
-    "migration:generate": "drizzle-kit generate:pg",
+    "migration:run": "drizzle-kit migrate",
+    "migration:generate": "drizzle-kit generate",
+    "migration:up": "drizzle-kit up",
     "migration:drop": "drizzle-kit drop",
     "migration:pull": "drizzle-kit introspect:pg",
     "studio": "drizzle-kit studio"

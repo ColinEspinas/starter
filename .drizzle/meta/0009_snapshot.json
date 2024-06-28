@@ -1,10 +1,8 @@
 {
-  "id": "a8e9a914-e62b-4861-8bc3-e1c9b75cb3e5",
-  "prevId": "07333228-33d8-4f6a-b2f3-7b701772369b",
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "customers": {
+    "public.customers": {
       "name": "customers",
       "schema": "",
       "columns": {
@@ -26,7 +24,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "subscriptions": {
+    "public.subscriptions": {
       "name": "subscriptions",
       "schema": "",
       "columns": {
@@ -80,14 +78,14 @@
       "uniqueConstraints": {
         "subscriptions_stripe_id_unique": {
           "name": "subscriptions_stripe_id_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "stripe_id"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     },
-    "tasks": {
+    "public.tasks": {
       "name": "tasks",
       "schema": "",
       "columns": {
@@ -125,8 +123,10 @@
   "enums": {},
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "a8e9a914-e62b-4861-8bc3-e1c9b75cb3e5",
+  "prevId": "07333228-33d8-4f6a-b2f3-7b701772369b"
 }
