@@ -49,6 +49,8 @@ export default defineNuxtConfig({
       // Keys within public, will be also exposed to the client-side
       stripeKey: '',
       appDomain: '',
+      kindeGithubConnectionId: '',
+      kindeEmailConnectionId: '',
     },
   },
 

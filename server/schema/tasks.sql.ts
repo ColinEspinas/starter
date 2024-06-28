@@ -1,17 +1,17 @@
-import { boolean, pgTable, serial, text } from 'drizzle-orm/pg-core'
+import { boolean, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core'
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 import { z } from 'zod'
 
 export const tasks = pgTable('tasks', {
   id: serial('id').primaryKey(),
-  title: text('title').notNull(),
+  title: varchar('title', { length: 256 }).notNull(),
   completed: boolean('completed').notNull(),
   user: text('user_id').notNull(),
 })
 
 export const selectTaskSchema = createSelectSchema(tasks)
 export const insertTaskSchema = createInsertSchema(tasks, {
-  title: z.string(),
+  title: z.string().max(256),
   completed: z.boolean(),
   user: z.string(),
 })

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { withQuery } from 'ufo'
 
+const { kindeEmailConnectionId, kindeGithubConnectionId } = useRuntimeConfig().public
 const { t } = useI18n()
 
 useSeoMeta({
@@ -11,8 +12,8 @@ useSeoMeta({
 const localePath = useLocalePath()
 const email = ref('')
 
-const githubLoginLink = withQuery('/api/register', { connection_id: 'conn_018f08807674382a5fc7726a468fdaf1' })
-const emailLoginLink = computed(() => withQuery('/api/register', { connection_id: 'conn_018f08807674e7c18a2daf6d90bd3e84', login_hint: email.value }))
+const githubLoginLink = withQuery('/api/register', { connection_id: kindeGithubConnectionId })
+const emailLoginLink = computed(() => withQuery('/api/register', { connection_id: kindeEmailConnectionId, login_hint: email.value }))
 </script>
 
 <template>
