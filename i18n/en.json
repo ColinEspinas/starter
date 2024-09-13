@@ -2,11 +2,17 @@
   "auth" : {
     "email-placeholder" : "Enter you email...",
     "sign-in" : {
+      "meta" : {
+        "title" : "Sign in"
+      },
       "no-account" : "Don't have an account?",
       "title" : "Welcome back!"
     },
     "sign-up" : {
       "already-have-account" : "Already have an account?",
+      "meta" : {
+        "title" : "Sign up"
+      },
       "title" : "Welcome!"
     }
   },

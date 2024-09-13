@@ -5,7 +5,7 @@ const { kindeEmailConnectionId, kindeGithubConnectionId } = useRuntimeConfig().p
 const { t } = useI18n()
 
 useSeoMeta({
-  title: `${t('common.app-name')} - ${t('subscribe.meta.title')}`,
+  title: `${t('common.app-name')} - ${t('auth.sign-in.meta.title')}`,
   description: t('home.meta.description'),
 })
 
