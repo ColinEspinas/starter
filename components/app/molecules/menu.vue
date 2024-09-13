@@ -49,24 +49,21 @@ const initials = computed(() => {
 
 <template>
   <DropdownMenuRoot v-if="$auth.loggedIn" v-model:open="toggleState">
-    <!-- Client only waiting for https://github.com/radix-vue/radix-vue/discussions/558 -->
-    <ClientOnly>
-      <DropdownMenuTrigger aria-label="User Menu">
-        <AvatarRoot class="inline-flex h-8 w-8 select-none items-center justify-center overflow-hidden rounded-full align-middle">
-          <AvatarImage
-            class="h-full w-full rounded-[inherit] border-2 dark:border-base-800 border-base-100 object-cover"
-            :src="$auth.user.picture ?? ''"
-            :alt="displayName"
-          />
-          <AvatarFallback
-            class="leading-1 flex h-full w-full items-center justify-center bg-accent-400 text-base-50 text-[15px] font-medium"
-            :delay-ms="600"
-          >
-            {{ initials }}
-          </AvatarFallback>
-        </AvatarRoot>
-      </DropdownMenuTrigger>
-    </ClientOnly>
+    <DropdownMenuTrigger aria-label="User Menu">
+      <AvatarRoot class="inline-flex h-8 w-8 select-none items-center justify-center overflow-hidden rounded-full align-middle">
+        <AvatarImage
+          class="h-full w-full rounded-[inherit] border-2 dark:border-base-800 border-base-100 object-cover"
+          :src="$auth.user.picture ?? ''"
+          :alt="displayName"
+        />
+        <AvatarFallback
+          class="leading-1 flex h-full w-full items-center justify-center bg-accent-400 text-base-50 text-[15px] font-medium"
+          :delay-ms="600"
+        >
+          {{ initials }}
+        </AvatarFallback>
+      </AvatarRoot>
+    </DropdownMenuTrigger>
 
     <DropdownMenuPortal>
       <DropdownMenuContent
