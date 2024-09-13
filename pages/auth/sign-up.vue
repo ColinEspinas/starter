@@ -22,10 +22,10 @@ const emailLoginLink = computed(() => withQuery('/api/register', { connection_id
     <main class="flex flex-col gap-4">
       <article class="flex flex-col gap-2 rounded-xl bg-base-100 dark:bg-base-900 p-5">
         <h2 class="font-bold text-2xl">
-          Welcome!
+          {{ $t('auth.sign-up.title') }}
         </h2>
         <p>
-          <span>Already have an account? </span>
+          <span>{{ $t('auth.sign-up.already-have-account') }}&nbsp;</span>
           <NuxtLink :to="localePath('/auth/sign-in')" class="text-accent-600 dark:text-accent-400">
             {{ $t('common.sign-in') }}
           </NuxtLink>
@@ -35,7 +35,7 @@ const emailLoginLink = computed(() => withQuery('/api/register', { connection_id
           <input
             v-model="email"
             type="email"
-            placeholder="Enter you email..."
+            :placeholder="$t('auth.email-placeholder')"
             class="transition-all
             focus-within:border-base-600 focus-within:dark:border-base-400
             border-2 border-base-100 bg-base-50 dark:border-base-900 dark:bg-base-950
@@ -53,7 +53,7 @@ const emailLoginLink = computed(() => withQuery('/api/register', { connection_id
         </form>
 
         <div class="divider divider-start">
-          OR
+          {{ $t('common.or').toUpperCase() }}
         </div>
 
         <div class="w-full">
