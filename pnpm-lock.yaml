@@ -45,6 +45,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^3.6.0
         version: 3.6.0(@typescript-eslint/utils@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.4)(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)
+      '@iconify-json/ph':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@nuxt/devtools':
         specifier: ^1.4.2
         version: 1.4.2(rollup@4.21.3)(vite@5.4.5(@types/node@22.5.4)(terser@5.32.0))(vue@3.5.4(typescript@5.6.2))(webpack-sources@3.2.3)
@@ -1103,6 +1106,9 @@ packages:
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/ph@1.2.0':
+    resolution: {integrity: sha512-013eLpgTmX1lACOuDnkuhC7gRHyYj9w/j8SyDmlyUYvsKQrwdRsv1otcXtwH3DevuDAzSkreeeRsCeez+gTyVA==}
 
   '@iconify/collections@1.0.459':
     resolution: {integrity: sha512-OoyCit2aKFH5ZpcLvaWJDnsFerWN+fb1108lpDVUpbccqRb0zjyeRwCvTEtL1QVYct+vxGUO/9USYmxCtRR+Qw==}
@@ -5849,6 +5855,10 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.3.0': {}
+
+  '@iconify-json/ph@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/collections@1.0.459':
     dependencies:
