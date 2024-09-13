@@ -18,38 +18,45 @@
     "studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@nuxtjs/kinde": "^0.1.10",
-    "@pinia/nuxt": "^0.5.1",
-    "@stripe/stripe-js": "^4.0.0",
-    "drizzle-orm": "^0.31.2",
+    "@nuxtjs/kinde": "^0.1.11",
+    "@pinia/nuxt": "^0.5.4",
+    "@stripe/stripe-js": "^4.4.0",
+    "drizzle-orm": "^0.33.0",
     "drizzle-zod": "^0.5.1",
-    "nuxt-umami": "^2.6.2",
-    "pinia": "^2.1.7",
+    "pinia": "^2.2.2",
     "postgres": "^3.4.4",
-    "radix-vue": "^1.8.5",
-    "stripe": "^16.0.0",
-    "ufo": "^1.5.3",
+    "radix-vue": "^1.9.5",
+    "stripe": "^16.11.0",
+    "ufo": "^1.5.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.1",
-    "@nuxt/devtools": "^1.3.7",
-    "@nuxtjs/color-mode": "^3.4.2",
+    "@antfu/eslint-config": "^3.6.0",
+    "@nuxt/devtools": "^1.4.2",
+    "@nuxt/icon": "^1.5.1",
+    "@nuxtjs/color-mode": "^3.5.0",
     "@nuxtjs/fontaine": "^0.4.3",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "^8.3.1",
-    "@types/node": "^20.14.9",
-    "@vueuse/core": "^10.11.0",
-    "@vueuse/nuxt": "^10.11.0",
-    "autoprefixer": "^10.4.19",
+    "@nuxtjs/i18n": "^8.5.3",
+    "@types/node": "^22.5.4",
+    "@vueuse/core": "^11.0.3",
+    "@vueuse/nuxt": "^11.0.3",
+    "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.10",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.22.7",
-    "eslint": "^9.5.0",
-    "nuxt": "^3.12.2",
-    "nuxt-icon": "^0.6.10",
+    "drizzle-kit": "^0.24.2",
+    "eslint": "^9.10.0",
+    "nuxt": "^3.13.1",
+    "nuxt-umami": "^3.0.1",
     "pg": "^8.12.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4"
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.11"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "db0>drizzle-orm": "^0.33.0"
+      }
+    }
   }
 }

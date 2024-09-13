@@ -1,20 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+    componentInspector: false,
+  },
 
   modules: [
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
-    'nuxt-icon',
+    '@nuxt/icon',
     '@nuxtjs/kinde',
     'radix-vue/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/fontaine',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
+    'nuxt-umami',
   ],
-
-  extends: ['nuxt-umami'],
 
   css: [
     '~/assets/css/main.css',
@@ -62,11 +64,13 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: 'en', iso: 'en-US', files: ['en.json'] },
-      { code: 'fr', iso: 'fr-FR', files: ['fr.json'] },
+      { code: 'en', language: 'en-US', files: ['en.json'] },
+      { code: 'fr', language: 'fr-FR', files: ['fr.json'] },
     ],
     strategy: 'prefix',
     defaultLocale: 'en',
     langDir: './i18n',
   },
+
+  compatibilityDate: '2024-09-13',
 })

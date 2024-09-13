@@ -18,7 +18,6 @@ export async function useTasks() {
       tasks.value = data.value || []
     }
   }
-  await getTasks()
 
   async function addTask(title: string) {
     if (loggedIn) {
