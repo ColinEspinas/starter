@@ -1,5 +1,11 @@
+import i18nConfig from './i18n/i18n.config'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+
   devtools: {
     enabled: true,
     componentInspector: false,
@@ -62,15 +68,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  i18n: {
-    locales: [
-      { code: 'en', language: 'en-US', files: ['en.json'] },
-      { code: 'fr', language: 'fr-FR', files: ['fr.json'] },
-    ],
-    strategy: 'prefix',
-    defaultLocale: 'en',
-    langDir: './i18n',
-  },
+  i18n: i18nConfig,
 
   compatibilityDate: '2024-09-13',
 })
